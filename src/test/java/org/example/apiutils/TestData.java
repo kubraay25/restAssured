@@ -1,5 +1,6 @@
 package org.example.apiutils;
 
+import io.restassured.RestAssured;
 import org.example.pojo.Category;
 import org.example.pojo.Pet;
 import org.example.pojo.Tag;
@@ -20,6 +21,7 @@ public class TestData {
     }
 
     public Pet createPet(int petId, String petName) {
+
         Tag tag = new Tag(1, "pet");
         ArrayList<Tag> myTags = new ArrayList<>();
         myTags.add(tag);

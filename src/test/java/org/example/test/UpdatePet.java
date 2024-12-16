@@ -10,48 +10,25 @@ import org.testng.annotations.Test;
 public class UpdatePet extends TestData {
 
     @Test
-    public void updatePetPositiveTest(){
+    public void updatePetPositiveTest() {
         String petName = "fox";
         int petId = 15;
         Pet pet = createPet(petId, petName);
         Response response = PetUtils.putUpdateMethod(pet);
-        Assert.assertEquals(response.jsonPath().getString("name"),petName);
-        Assert.assertEquals(response.jsonPath().getInt("id"),petId);
+        Assert.assertEquals(response.jsonPath().getString("name"), petName);
+        Assert.assertEquals(response.jsonPath().getInt("id"), petId);
         response = PetUtils.getPetMethod(petId);
         Assert.assertEquals(response.jsonPath().getInt("id"), petId);
         Assert.assertEquals(response.jsonPath().getString("name"), petName);
     }
 
     @Test
-    public void updatePetNegativeTest(){
+    public void updatePetNegativeTest() {
         /**
          * PUT API Update Bug
-         * PUT API da normalde olmayan b'r petId ver'ld'ğ'nde 404 hatas' almamız gerekmekted'r. Ancak bu API
-         * olmayan ID ver'ld'ğ'nde bu hatayı vermek yer'ne POST create şlem' g'b' o ID de b'r pet oluşturmaktadır.
-         * Bu sebeple negat'f senaryo yapılmadı
+         * PUT API da normalde olmayan bir petId verildiğinde 404 hatasi almamız gerekmektedir. Ancak bu API
+         * olmayan ID verildiğinde bu hatayı vermek yerine POST create şlemi gibi o ID de bir pet oluşturmaktadır.
+         * Bu sebeple negatif senaryo yapılmadı
          */
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

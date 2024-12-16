@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="pet api" thread-count="15">
+
+    <test name="E2e">
+        <classes>
+            <class name="org.example.test.E2ePet" />
+        </classes>
+    </test>
+</suite>

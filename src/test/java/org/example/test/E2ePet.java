@@ -1,13 +1,11 @@
 package org.example.test;
 
-
 import io.restassured.response.Response;
 import org.example.apiutils.PetUtils;
 import org.example.apiutils.TestData;
 import org.example.pojo.Pet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 public class E2ePet extends TestData {
 
@@ -31,13 +29,8 @@ public class E2ePet extends TestData {
         Assert.assertEquals(response.jsonPath().getInt("id"), petId);
         Assert.assertEquals(response.jsonPath().getString("name"), petName);
 
-        response =PetUtils.deletePetMethod(petId);
-        Assert.assertEquals(response.statusCode(),200);
-        Assert.assertEquals(response.jsonPath().getInt("message"),petId);
-
-
-
-
-
+        response = PetUtils.deletePetMethod(petId);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.jsonPath().getInt("message"), petId);
     }
 }

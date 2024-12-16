@@ -9,9 +9,8 @@ import static io.restassured.RestAssured.given;
 
 public class PetUtils {
 
-
     public static Response postAddMethod(Pet pet) {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+        RestAssured.baseURI = ConfigReader.getProperty("baseuri");
         Response response = given().log().all().header("Content-Type", ContentType.JSON)
                 .body(pet)
                 .when().post("/pet")
@@ -20,7 +19,7 @@ public class PetUtils {
     }
 
     public static Response postAddMethodNegatve() {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+        RestAssured.baseURI = ConfigReader.getProperty("baseuri");
         Response response = given().log().all().header("Content-Type", ContentType.JSON)
                 .body("")
                 .when().post("/pet")
@@ -29,7 +28,7 @@ public class PetUtils {
     }
 
     public static Response putUpdateMethod(Pet pet) {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+        RestAssured.baseURI = ConfigReader.getProperty("baseuri");
         Response response = given().log().all().header("Content-Type", ContentType.JSON)
                 .body(pet)
                 .when().put("/pet")
@@ -38,7 +37,7 @@ public class PetUtils {
     }
 
     public static Response getPetMethod(int petId) {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+        RestAssured.baseURI = ConfigReader.getProperty("baseuri");
         Response response = given().log().all()
                 .when().get("/pet/" + petId)
                 .then().log().all().extract().response();
@@ -46,11 +45,10 @@ public class PetUtils {
     }
 
     public static Response deletePetMethod(int petId) {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
+        RestAssured.baseURI = ConfigReader.getProperty("baseuri");
         Response response = given().log().all()
                 .when().delete("/pet/" + petId)
                 .then().log().all().extract().response();
         return response;
     }
-
 }

@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 
 public class AddPet extends TestData {
 
-
     @Test
     public void tc001AddPetPositive() {
         int petId = 1, categoryId = 2;
@@ -31,7 +30,7 @@ public class AddPet extends TestData {
     public void tc002AddPetNegative() {
         Response response = PetUtils.postAddMethodNegatve();
 
-        Assert.assertEquals(response.statusCode(),405);
+        Assert.assertEquals(response.statusCode(), 405);
         Assert.assertEquals(response.jsonPath().getString("message"), "no data");
     }
 
