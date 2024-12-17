@@ -1,6 +1,5 @@
 package org.example.apiutils;
 
-import io.restassured.RestAssured;
 import org.example.pojo.Category;
 import org.example.pojo.Pet;
 import org.example.pojo.Tag;
